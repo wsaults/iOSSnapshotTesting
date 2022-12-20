@@ -5,32 +5,43 @@
 //  Created by Will Saults on 12/17/22.
 //
 
+import SwiftUI
 import XCTest
 @testable import SnapshotTesting
 
 final class SnapshotTestingTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func test_content() {
+        let cells = makeCells()
+        let sut = makeSUT(with: cells)
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        assert(snapshot: sut.snapshot(for: .iPhone14(style: .light)), named: "CONTENT_light")
+        assert(snapshot: sut.snapshot(for: .iPhone14(style: .dark)), named: "CONTENT_dark")
+        assert(snapshot: sut.snapshot(for: .iPhone14(style: .light, contentSize: .extraExtraExtraLarge)), named: "CONTENT_light_extraExtraExtraLarge")
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    // MARK: Helpers
+    
+    private func makeSUT(with cellCiewModels: [CellViewModel]) -> UIViewController {
+        let content = ContentView(cellViewModels: cellCiewModels)
+        let controller = UIHostingController(rootView: content)
+        controller.loadViewIfNeeded()
+        return controller
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    private func makeCells() -> [CellViewModel] {
+        [
+            CellViewModel(
+                title: "Amet commodo\nfacilisi nullam vehicula",
+                image: UIImage.make(withColor: .red),
+                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+            )
+            ,
+            CellViewModel(
+                title: "Cras sed\neget velit aliquet",
+                image: UIImage.make(withColor: .green),
+                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sem integer vitae justo eget magna fermentum iaculis. Turpis massa sed elementum tempus egestas sed sed risus."
+            )
+        ]
     }
-
 }

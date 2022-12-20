@@ -11,7 +11,7 @@ import SwiftUI
 struct SnapshotTestingApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(cellViewModels: [])
         }
     }
 }

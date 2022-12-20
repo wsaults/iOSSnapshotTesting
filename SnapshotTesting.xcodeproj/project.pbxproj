@@ -12,6 +12,11 @@
 		BEA9C4AC294E2D0C00F944A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEA9C4AB294E2D0C00F944A6 /* Assets.xcassets */; };
 		BEA9C4AF294E2D0C00F944A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEA9C4AE294E2D0C00F944A6 /* Preview Assets.xcassets */; };
 		BEA9C4B9294E2D0C00F944A6 /* SnapshotTestingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA9C4B8294E2D0C00F944A6 /* SnapshotTestingTests.swift */; };
+		BEC3EDB5294E4C96009B77FF /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC3EDB4294E4C96009B77FF /* XCTestCase+Snapshot.swift */; };
+		BEC3EDB7294E4CCC009B77FF /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC3EDB6294E4CCC009B77FF /* UIViewController+Snapshot.swift */; };
+		BEC3EDB9294E53F5009B77FF /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC3EDB8294E53F5009B77FF /* UIImage+TestHelpers.swift */; };
+		BEC3EDBA294E5436009B77FF /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC3EDB8294E53F5009B77FF /* UIImage+TestHelpers.swift */; };
+		BEC3EDBC294E558D009B77FF /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC3EDBB294E558D009B77FF /* CellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +37,10 @@
 		BEA9C4AE294E2D0C00F944A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BEA9C4B4294E2D0C00F944A6 /* SnapshotTestingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapshotTestingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEA9C4B8294E2D0C00F944A6 /* SnapshotTestingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTestingTests.swift; sourceTree = "<group>"; };
+		BEC3EDB4294E4C96009B77FF /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Snapshot.swift"; sourceTree = "<group>"; };
+		BEC3EDB6294E4CCC009B77FF /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
+		BEC3EDB8294E53F5009B77FF /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
+		BEC3EDBB294E558D009B77FF /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +84,7 @@
 			children = (
 				BEA9C4A7294E2D0A00F944A6 /* SnapshotTestingApp.swift */,
 				BEA9C4A9294E2D0A00F944A6 /* ContentView.swift */,
+				BEC3EDBB294E558D009B77FF /* CellView.swift */,
 				BEA9C4AB294E2D0C00F944A6 /* Assets.xcassets */,
 				BEA9C4AD294E2D0C00F944A6 /* Preview Content */,
 			);
@@ -92,9 +102,28 @@
 		BEA9C4B7294E2D0C00F944A6 /* SnapshotTestingTests */ = {
 			isa = PBXGroup;
 			children = (
+				BEC3EDB1294E4C54009B77FF /* Helpers */,
+				BEC3EDB0294E4C42009B77FF /* snapshots */,
 				BEA9C4B8294E2D0C00F944A6 /* SnapshotTestingTests.swift */,
 			);
 			path = SnapshotTestingTests;
+			sourceTree = "<group>";
+		};
+		BEC3EDB0294E4C42009B77FF /* snapshots */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = snapshots;
+			sourceTree = "<group>";
+		};
+		BEC3EDB1294E4C54009B77FF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BEC3EDB4294E4C96009B77FF /* XCTestCase+Snapshot.swift */,
+				BEC3EDB6294E4CCC009B77FF /* UIViewController+Snapshot.swift */,
+				BEC3EDB8294E53F5009B77FF /* UIImage+TestHelpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,8 +226,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEC3EDBC294E558D009B77FF /* CellView.swift in Sources */,
 				BEA9C4AA294E2D0A00F944A6 /* ContentView.swift in Sources */,
 				BEA9C4A8294E2D0A00F944A6 /* SnapshotTestingApp.swift in Sources */,
+				BEC3EDBA294E5436009B77FF /* UIImage+TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +237,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEC3EDB5294E4C96009B77FF /* XCTestCase+Snapshot.swift in Sources */,
+				BEC3EDB7294E4CCC009B77FF /* UIViewController+Snapshot.swift in Sources */,
 				BEA9C4B9294E2D0C00F944A6 /* SnapshotTestingTests.swift in Sources */,
+				BEC3EDB9294E53F5009B77FF /* UIImage+TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
