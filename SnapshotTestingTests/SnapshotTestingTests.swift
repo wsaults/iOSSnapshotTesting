@@ -20,10 +20,21 @@ final class SnapshotTestingTests: XCTestCase {
         assert(snapshot: sut.snapshot(for: .iPhone14(style: .light, contentSize: .extraExtraExtraLarge)), named: "CONTENT_light_extraExtraExtraLarge")
     }
     
+    func test_errorMessage() {
+        let sut = makeSUT(errorMessage: "Lorem ipsum dolor sit")
+
+        assert(snapshot: sut.snapshot(for: .iPhone14(style: .light)), named: "ERROR_MESSAGE_light")
+        assert(snapshot: sut.snapshot(for: .iPhone14(style: .dark)), named: "ERROR_MESSAGE_dark")
+        assert(snapshot: sut.snapshot(for: .iPhone14(style: .light, contentSize: .extraExtraExtraLarge)), named: "ERROR_MESSAGE_light_extraExtraExtraLarge")
+    }
+    
     // MARK: Helpers
     
-    private func makeSUT(with cellCiewModels: [CellViewModel]) -> UIViewController {
-        let content = ContentView(cellViewModels: cellCiewModels)
+    private func makeSUT(with cellCiewModels: [CellViewModel] = [], errorMessage: String? = nil) -> UIViewController {
+        let content = ContentView(
+            errorMessage: errorMessage,
+            cellViewModels: cellCiewModels
+        )
         let controller = UIHostingController(rootView: content)
         controller.loadViewIfNeeded()
         return controller
