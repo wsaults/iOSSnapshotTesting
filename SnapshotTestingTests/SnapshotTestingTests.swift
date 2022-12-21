@@ -30,10 +30,10 @@ final class SnapshotTestingTests: XCTestCase {
     
     // MARK: Helpers
     
-    private func makeSUT(with cellCiewModels: [CellViewModel] = [], errorMessage: String? = nil) -> UIViewController {
+    private func makeSUT(with cellViewModels: [CellViewModel] = [], errorMessage: String? = nil) -> UIViewController {
         let content = ContentView(
             errorMessage: errorMessage,
-            cellViewModels: cellCiewModels
+            cellViewModels: cellViewModels
         )
         let controller = UIHostingController(rootView: content)
         controller.loadViewIfNeeded()
